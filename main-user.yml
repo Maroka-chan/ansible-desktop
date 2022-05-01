@@ -4,7 +4,7 @@
 
 - name: Set up sudo for main user
   ansible.builtin.template:
-    src: "files/sudoer_{{ main_user }}"
+    src: files/sudoer_main
     dest: "/etc/sudoers.d/{{ main_user }}"
     owner: root
     group: root
