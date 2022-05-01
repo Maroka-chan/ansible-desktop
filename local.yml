@@ -24,14 +24,16 @@
   - name: Clone Yay
     git:
       repo: https://aur.archlinux.org/yay-bin.git
-      dest: /tmp/yay
+      dest: ~/yay-bin
       update: true
     become_user: "{{ ansible_user }}"
 
   - name: Install Yay
     command:
-      cmd: "makepkg -sfi --noconfirm"
+      chdir: ~/yay-bin
+      cmd: "makepkg -sfi --noconfirm && rm -rf ~/yay-bin"
       creates: /usr/bin/yay
+      removes: ~/yay-bin
     become_user: "{{ ansible_user }}"
   
   - name: Upgrade the System
