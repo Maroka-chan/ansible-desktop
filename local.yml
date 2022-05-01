@@ -9,6 +9,12 @@
 
 
   tasks:
+  - name: Install Sudo
+    community.general.pacman:
+      name:
+        - sudo
+      state: present
+
   - include_tasks: ansible-user.yml
   
   - name: Install Packages
