@@ -10,10 +10,3 @@
     owner: root
     group: root
     mode: 0440
-
-- name: Add ansible-pull cron job
-  cron:
-    name: ansible auto-provision
-    user: "{{ ansible_user }}"
-    minute: "*/10"
-    job: ansible-pull -o -U git@github.com:Maroka-chan/ansible-desktop.git
