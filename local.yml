@@ -22,6 +22,7 @@
       state: present
   
   - name: Install Yay
+    become_user: "{{ ansible_user }}"
     ansible.builtin.command: git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si && rm -r yay-bin
   
   - name: Upgrade the System
