@@ -9,9 +9,24 @@
 
 
   tasks:
+  - name: Install collections
+    community.general.ansible_galaxy_install:
+      type: collection
+      requirements_file: requirements.yml
+
+  - name: Install Yay
+    ansible.builtin.command: git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si && rm -r yay-bin
+  
+  - name: Upgrade the System
+    kewlfft.aur.aur:
+      upgrade: yes
+      use: yay
+
   - name: Install Packages
     community.general.pacman:
       name:
+        - git
+        - base-devel
         - sudo
         - cronie
         - btop
@@ -40,7 +55,8 @@
         - "{{ terminal }}"
 
   - name: Install Thunar
-    community.general.pacman:
+    kewlfft.aur.aur:
+      use: yay
       name:
         - thunar
         - gvfs
