@@ -30,9 +30,9 @@
   - name: Install Yay
     command:
       chdir: /tmp/yay
-      become_user: "{{ ansible_user }}"
       cmd: "makepkg -sfi --noconfirm"
       creates: /usr/bin/yay
+    become_user: "{{ ansible_user }}"
   
   - name: Upgrade the System
     kewlfft.aur.aur:
