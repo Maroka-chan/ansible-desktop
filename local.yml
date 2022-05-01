@@ -7,9 +7,10 @@
     - ansible_user: ansible
     - terminal: kitty
 
-- import_playbook: ansible-user.yml
 
   tasks:
+  - include_tasks: ansible-user.yml
+  
   - name: Install Packages
     community.general.pacman:
       name:
@@ -29,8 +30,7 @@
       name:
         - "{{ terminal }}"
 
-  - name: Install and Configure Thunar
-    # Install Packages
+  - name: Install Thunar
     community.general.pacman:
       name:
         - thunar
@@ -39,6 +39,8 @@
         - tumbler
         - raw-thumbnailer
       state: present
+
+  - name: Configure Thunar
     # Add Custom Actions
     ansible.builtin.template:
       src: files/thunar/custom_actions.xml.j2
