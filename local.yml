@@ -11,7 +11,7 @@
   tasks:
   # Set up users
   - include_tasks: ansible-user.yml
-  - include_tasks: main_user.yml
+  - include_tasks: main-user.yml
   
   - name: Install collections
     community.general.ansible_galaxy_install:
