@@ -2,9 +2,46 @@
 - hosts: localhost
   connection: local
   become: true
+  vars:
+    - main_user: maroka
+    - ansible_user: ansible
+    - terminal: kitty
+
+- import_playbook: ansible-user.yml
 
   tasks:
-  - name: install btop
+  - name: Install Packages
     community.general.pacman:
-      name: btop
+      name:
+        - btop
+        - flameshot
+        - chromium
+        - firefox
+        - zathura
+        - zathura-pdf-mupdf
+        - catfish
+        - feh
       state: present
+
+  - name: Install and Configure Terminal
+    # Install Packages
+    community.general.pacman:
+      name:
+        - "{{ terminal }}"
+
+  - name: Install and Configure Thunar
+    # Install Packages
+    community.general.pacman:
+      name:
+        - thunar
+        - gvfs
+        - thunar-media-tags-plugin
+        - tumbler
+        - raw-thumbnailer
+      state: present
+    # Add Custom Actions
+    ansible.builtin.template:
+      src: files/thunar/custom_actions.xml.j2
+      dest: "/home/{{ main_user }}/.config/Thunar/uca.xml"
+      owner: "{{ main_user }}"
+      group: "{{ main_user }}"
