@@ -9,6 +9,11 @@
 
 
   tasks:
+  # Set up users
+  - include_tasks:
+    - ansible-user.yml
+    - main_user.yml
+  
   - name: Install collections
     community.general.ansible_galaxy_install:
       type: collection
@@ -62,9 +67,6 @@
       state: started
       enabled: yes
 
-  # Set up ansible sudo system user
-  - include_tasks: ansible-user.yml  
-
   - name: Install and Configure Terminal
     # Install Packages
     community.general.pacman:
@@ -82,13 +84,18 @@
         - raw-thumbnailer
       state: present
 
+  - name: Create Thunar config dir
+    file: path=~/.config/Thunar state=directory mode=0700
+    become_user: "{{ main_user }}"
+
   - name: Configure Thunar
     # Add Custom Actions
     ansible.builtin.template:
       src: files/thunar/custom_actions.xml.j2
-      dest: "/home/{{ main_user }}/.config/Thunar/uca.xml"
+      dest: ~/.config/Thunar/uca.xml
       owner: "{{ main_user }}"
       group: "{{ main_user }}"
+    become_user: "{{ main_user }}"
 
   - name: Add ansible-pull cron job
     cron:
