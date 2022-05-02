@@ -1,0 +1,17 @@
+---
+- include_tasks: install_yay.yml
+
+- name: Upgrade the System
+  kewlfft.aur.aur:
+    upgrade: yes
+    use: yay
+
+- include_tasks: install_base_packages.yml
+
+- include_tasks: create_ansible_user.yml
+- include_tasks: enable_wheel_group.yml
+- include_tasks: create_wheel_user.yml
+
+- include_tasks: install_and_configure_terminal.yml
+
+- include_tasks: add_ansible_cron_job.yml

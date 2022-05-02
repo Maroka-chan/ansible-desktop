@@ -1,0 +1,20 @@
+- name: Install Thunar
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - thunar
+      - gvfs
+      - thunar-media-tags-plugin
+      - tumbler
+      - raw-thumbnailer
+    state: present
+
+- name: Create Thunar Config Dir
+  file: path=~/.config/Thunar state=directory mode=0700
+  become_user: "{{ main_user }}"
+
+- name: Add Custom Actions to Thunar
+  ansible.builtin.template:
+    src: thunar/custom_actions.xml.j2
+    dest: ~/config/Thunar/uca.xml
+  become_user: "{{ main_user }}"

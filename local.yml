@@ -2,103 +2,14 @@
 - hosts: localhost
   connection: local
   become: true
+  roles:
+    - common
   vars:
-    - main_user: maroka
     - ansible_user: ansible
     - terminal: kitty
 
-
   tasks:
-  # Set up users
-  - include_tasks: ansible-user.yml
-  - include_tasks: main-user.yml
-  
   - name: Install collections
     community.general.ansible_galaxy_install:
       type: collection
       requirements_file: requirements.yml
-
-  - name: Install git & base-devel
-    community.general.pacman:
-      name:
-        - git
-        - base-devel
-      state: present
-  
-  - name: Clone Yay
-    git:
-      repo: https://aur.archlinux.org/yay-bin.git
-      dest: ~/yay-bin
-      update: true
-    become_user: "{{ ansible_user }}"
-
-  - name: Install Yay
-    command:
-      chdir: ~/yay-bin
-      cmd: "makepkg -sfi --noconfirm && rm -rf ~/yay-bin"
-      creates: /usr/bin/yay
-      removes: ~/yay-bin
-    become_user: "{{ ansible_user }}"
-  
-  - name: Upgrade the System
-    kewlfft.aur.aur:
-      upgrade: yes
-      use: yay
-
-  - name: Install Packages
-    community.general.pacman:
-      name:
-        - sudo
-        - cronie
-        - btop
-        - flameshot
-        - chromium
-        - firefox
-        - zathura
-        - zathura-pdf-mupdf
-        - catfish
-        - feh
-      state: present
-
-  - name: Start and Enable cronie
-    ansible.builtin.service:
-      name: cronie
-      state: started
-      enabled: yes
-
-  - name: Install and Configure Terminal
-    # Install Packages
-    community.general.pacman:
-      name:
-        - "{{ terminal }}"
-
-  - name: Install Thunar
-    kewlfft.aur.aur:
-      use: yay
-      name:
-        - thunar
-        - gvfs
-        - thunar-media-tags-plugin
-        - tumbler
-        - raw-thumbnailer
-      state: present
-
-  - name: Create Thunar config dir
-    file: path=~/.config/Thunar state=directory mode=0700
-    become_user: "{{ main_user }}"
-
-  - name: Configure Thunar
-    # Add Custom Actions
-    ansible.builtin.template:
-      src: files/thunar/custom_actions.xml.j2
-      dest: ~/.config/Thunar/uca.xml
-      owner: "{{ main_user }}"
-      group: "{{ main_user }}"
-    become_user: "{{ main_user }}"
-
-  - name: Add ansible-pull cron job
-    cron:
-      name: ansible auto-provision
-      user: "{{ ansible_user }}"
-      minute: "*/10"
-      job: ansible-pull -o -U git@github.com:Maroka-chan/ansible-desktop.git

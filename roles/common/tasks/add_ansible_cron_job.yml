@@ -1,0 +1,17 @@
+- name: Install cronie
+  community.general.pacman:
+    name: cronie
+    state: present
+
+- name: Start and Enable cronie
+  ansible.builtin.service:
+    name: cronie
+    state: started
+    enabled: yes
+
+- name: Add ansible-pull cron job
+  cron:
+    name: ansible auto-provision
+    user: "{{ ansible_user }}"
+    minute: "*/10"
+    job: ansible-pull -o -U git@github.com:Maroka-chan/ansible-desktop.git

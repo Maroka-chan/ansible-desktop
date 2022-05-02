@@ -1,0 +1,11 @@
+- name: Install Base Packages
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - sudo
+      - btop
+      - neovim
+      - chromium
+      - firefox
+      - neofetch
+    state: present

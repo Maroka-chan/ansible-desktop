@@ -1,0 +1,21 @@
+- name: Install git & base-devel
+  community.general.pacman:
+    name:
+      - git
+      - base-devel
+    state: present
+
+- name: Clone Yay
+  git:
+    repo: https://aur.archlinux.org/yay-bin.git
+    dest: ~/yay-bin
+    update: true
+  become_user: "{{ ansible_user }}"
+
+- name: Install Yay
+  command:
+    chdir: ~/yay-bin
+    cmd: "makepkg -sfi --noconfirm && rm -rf ~/yay-bin"
+    creates: /usr/bin/yay
+    removes: ~/yay-bin
+  become_user: "{{ ansible_user }}"
