@@ -1,5 +1,4 @@
 ---
-- include_tasks: install_collections.yml
 - include_tasks: install_yay.yml
 
 - name: Upgrade the System
