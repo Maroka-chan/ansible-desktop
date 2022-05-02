@@ -18,4 +18,3 @@
     unsafe: yes
     encrypt: bcrypt
     confirm: yes
-    salt_size: 64
