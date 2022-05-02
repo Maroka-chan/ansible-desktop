@@ -1,4 +1,0 @@
-- name: Install Collections
-  community.general.ansible_galaxy_install:
-    type: collection
-    requirements_file: requirements.yml
