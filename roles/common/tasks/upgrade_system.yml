@@ -1,0 +1,4 @@
+- name: Upgrade the System
+  kewlfft.aur.aur:
+    upgrade: yes
+    use: yay

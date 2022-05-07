@@ -2,10 +2,7 @@
 - include_tasks: install_collections.yml
 - include_tasks: install_yay.yml
 
-- name: Upgrade the System
-  kewlfft.aur.aur:
-    upgrade: yes
-    use: yay
+- include_tasks: upgrade_system.yml
 
 - include_tasks: install_base_packages.yml
 
