@@ -1,5 +1,7 @@
 ---
-- include_tasks: install_collections.yml
+- name: Install yay collection
+  ansible.builtin.shell: ansible-galaxy collection install kewlfft.aur
+
 - include_tasks: install_yay.yml
 
 - include_tasks: upgrade_system.yml
