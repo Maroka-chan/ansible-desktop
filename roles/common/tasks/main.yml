@@ -3,9 +3,6 @@
 
 - include_tasks: install_yay.yml
 
-- name: Install yay collection
-  ansible.builtin.shell: yay -S ansible-collection-kewlfft-aur
-
 - include_tasks: upgrade_system.yml
 
 - include_tasks: install_base_packages.yml
