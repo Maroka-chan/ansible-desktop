@@ -1,14 +1,21 @@
 ---
 - include_tasks: create_ansible_user.yml
 
-- include_tasks: install_yay.yml
-
-- include_tasks: upgrade_system.yml
-
-- include_tasks: install_base_packages.yml
+- name: Install Sudo
+  community.general.pacman:
+    name:
+      - sudo
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
 
 - include_tasks: enable_wheel_group.yml
 - include_tasks: create_wheel_user.yml
+
+- include_tasks: install_pacman_packages.yml
+
+- include_tasks: install_yay.yml
+- include_tasks: upgrade_system.yml
 
 - include_tasks: set_up_kitty.yml
 - include_tasks: set_up_thunar.yml
