@@ -8,6 +8,9 @@
       - tumbler
       - raw-thumbnailer
     state: present
+  become: yes
+  become_user: "{{ main_user }}"
+  
 
 - name: Create Thunar Config Dir
   file: path=~/.config/Thunar state=directory mode=0700

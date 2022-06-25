@@ -2,3 +2,5 @@
   kewlfft.aur.aur:
     upgrade: yes
     use: yay
+  become: yes
+  become_user: "{{ main_user }}"

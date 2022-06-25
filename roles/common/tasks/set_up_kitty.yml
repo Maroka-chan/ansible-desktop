@@ -1,3 +1,5 @@
 - name: Install Kitty
   community.general.pacman:
     name: "{{ terminal }}"
+  become: yes
+  become_user: "{{ main_user }}"

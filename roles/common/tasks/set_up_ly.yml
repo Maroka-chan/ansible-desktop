@@ -4,8 +4,12 @@
     name:
       - ly
     state: present
+  become: yes
+  become_user: "{{ main_user }}"
 
 - name: Enable Ly
   ansible.builtin.service:
     name: ly
     enabled: yes
+  become: yes
+  become_user: "{{ main_user }}"
