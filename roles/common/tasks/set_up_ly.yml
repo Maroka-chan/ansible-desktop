@@ -1,0 +1,11 @@
+- name: Install Ly
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - ly
+    state: present
+
+- name: Enable Ly
+  ansible.builtin.service:
+    name: ly
+    enabled: yes
