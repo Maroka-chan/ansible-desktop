@@ -20,6 +20,6 @@
 - name: Add Custom Actions to Thunar
   ansible.builtin.template:
     src: thunar/custom_actions.xml.j2
-    dest: ~/config/Thunar/uca.xml
+    dest: ~/.config/Thunar/uca.xml
   become: yes
   become_user: "{{ main_user }}"
