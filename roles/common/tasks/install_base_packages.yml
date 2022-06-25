@@ -8,4 +8,5 @@
       - chromium
       - firefox
       - neofetch
+      - man
     state: present
