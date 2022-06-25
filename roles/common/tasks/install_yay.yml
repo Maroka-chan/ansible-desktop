@@ -10,6 +10,7 @@
     repo: https://aur.archlinux.org/yay-bin.git
     dest: ~/yay-bin
     update: true
+  become: yes
   become_user: "{{ ansible_user }}"
 
 - name: Install Yay
@@ -17,5 +18,5 @@
     chdir: ~/yay-bin
     cmd: "makepkg -sfi --noconfirm && rm -rf ~/yay-bin"
     creates: /usr/bin/yay
-    removes: ~/yay-bin
+  become: yes
   become_user: "{{ ansible_user }}"
