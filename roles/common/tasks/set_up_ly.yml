@@ -11,5 +11,3 @@
   ansible.builtin.service:
     name: ly
     enabled: yes
-  become: yes
-  become_user: "{{ main_user }}"
