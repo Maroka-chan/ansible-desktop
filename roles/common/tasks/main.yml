@@ -11,5 +11,3 @@
 - include_tasks: create_wheel_user.yml
 
 - include_tasks: set_up_kitty.yml
-
-- include_tasks: add_ansible_cron_job.yml
