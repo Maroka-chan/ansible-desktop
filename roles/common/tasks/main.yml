@@ -1,4 +1,6 @@
 ---
+- include_tasks: create_ansible_user.yml
+
 - include_tasks: install_yay.yml
 
 - name: Install yay collection
@@ -8,7 +10,6 @@
 
 - include_tasks: install_base_packages.yml
 
-- include_tasks: create_ansible_user.yml
 - include_tasks: enable_wheel_group.yml
 - include_tasks: create_wheel_user.yml
 
