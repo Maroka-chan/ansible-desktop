@@ -1,8 +1,6 @@
-- name: Install Base Packages
-  kewlfft.aur.aur:
-    use: yay
+- name: Install Base Pacman Packages
+  community.general.pacman:
     name:
-      - sudo
       - btop
       - neovim
       - chromium
@@ -10,3 +8,5 @@
       - neofetch
       - man
     state: present
+  become: yes
+  become_user: "{{ main_user }}"
