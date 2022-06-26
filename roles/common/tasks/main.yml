@@ -23,7 +23,7 @@
 - include_tasks: install_base_packages.yml
 
 - include_tasks: graphics_drivers/nvidia.yml
-  when: "'nvidia' in graphics_driver"
+  when: "'nvidia' in {{ graphics_driver }}"
 
 - include_tasks: terminal_emulator/{{ terminal }}.yml
 - include_tasks: filemanager/{{ filemanager }}.yml
