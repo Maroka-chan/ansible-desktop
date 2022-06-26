@@ -1,0 +1,14 @@
+- name: Install Pipewire
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - lib32-pipewire
+      - pipewire-alsa
+      - pipewire-pulse
+      - pipewire-jack
+      - lib32-pipewire-jack
+      - wireplumber
+      - pipewire
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
