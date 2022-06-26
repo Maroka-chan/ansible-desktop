@@ -1,0 +1,8 @@
+- name: Copy preconfigured profile
+  ansible.builtin.copy:
+    src: files/profile
+    dest: /etc/profile
+    owner: root
+    group: root
+    mode: '0644'
+    
