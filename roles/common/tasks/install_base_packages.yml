@@ -2,14 +2,14 @@
   kewlfft.aur.aur:
     use: "{{ aur_helper }}"
     name:
-      - pipewire-jack
-      - pipewire-media-session
       - btop
       - neovim
       - chromium
       - firefox
       - neofetch
       - man-db
+      - curl
+      - jq
     state: present
   become: yes
   become_user: "{{ ansible_user }}"
