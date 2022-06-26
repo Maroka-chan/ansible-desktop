@@ -13,7 +13,7 @@
   kewlfft.aur.aur:
     use: "{{ aur_helper }}"
     name:
-      - {{ graphics_driver }}
+      - "{{ graphics_driver }}"
       - lib32-nvidia-utils
       - nvidia-settings
     state: present
