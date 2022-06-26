@@ -1,0 +1,11 @@
+- name: Copy preconfigured GRUB config
+  ansible.builtin.copy:
+    src: files/grub
+    dest: /etc/default/grub
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Re-generate the GRUB config
+  ansible.builtin.command:
+    cmd: grub-mkconfig -o /boot/grub/grub.cfg
