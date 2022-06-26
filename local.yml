@@ -7,6 +7,9 @@
   vars:
     - ansible_user: ansible
     - terminal: kitty
+    - aur_helper: yay
+    - filemanager: thunar
+    - displaymanager: ly
 
   vars_prompt:
     - name: main_user
