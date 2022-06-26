@@ -1,13 +1,11 @@
 ---
-- include_tasks: create_ansible_user.yml
-
 - name: Install Sudo
   community.general.pacman:
     name:
       - sudo
     state: present
-  become: yes
-  become_user: "{{ ansible_user }}"
+
+- include_tasks: create_ansible_user.yml
 
 - include_tasks: enable_wheel_group.yml
 - include_tasks: create_wheel_user.yml
