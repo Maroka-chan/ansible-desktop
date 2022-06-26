@@ -1,0 +1,7 @@
+- name: Copy preconfigured pacman config
+  ansible.builtin.copy:
+    src: files/pacman.conf
+    dest: /etc/pacman.conf
+    owner: root
+    group: root
+    mode: '0644'

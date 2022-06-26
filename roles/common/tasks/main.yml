@@ -11,6 +11,7 @@
 - include_tasks: create_wheel_user.yml
 
 - include_tasks: aur_helper/{{ aur_helper }}.yml
+- include_tasks: configure_pacman.yml
 - include_tasks: upgrade_system.yml
 - include_tasks: install_base_packages.yml
 
