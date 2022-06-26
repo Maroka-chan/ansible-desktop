@@ -6,6 +6,7 @@
     - common
   vars:
     - ansible_user: ansible
+    - bootloader: grub
     - networkmanager: networkmanager
     - graphics_driver: nvidia
     - terminal: kitty
