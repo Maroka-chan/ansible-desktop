@@ -1,0 +1,8 @@
+- name: Install Awesome
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - awesome-git
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
