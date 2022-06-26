@@ -8,7 +8,9 @@
     - ansible_user: ansible
     - bootloader: grub
     - networkmanager: networkmanager
+    - display_server: xorg
     - graphics_driver: nvidia
+    - window_manager: awesome
     - terminal: kitty
     - aur_helper: yay
     - filemanager: thunar
