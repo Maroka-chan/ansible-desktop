@@ -23,3 +23,4 @@
 - name: Create automatic configuration
   ansible.builtin.command:
     cmd: nvidia-xconfig
+  when: "display_server == 'xorg'"
