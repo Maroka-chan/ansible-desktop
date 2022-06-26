@@ -30,3 +30,6 @@
 - include_tasks: terminal_emulator/{{ terminal }}.yml
 - include_tasks: filemanager/{{ filemanager }}.yml
 - include_tasks: displaymanager/{{ displaymanager }}.yml
+
+- name: Unconditionally reboot the machine with all defaults
+  ansible.builtin.reboot:
