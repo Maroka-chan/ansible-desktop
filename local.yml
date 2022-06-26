@@ -6,6 +6,7 @@
     - common
   vars:
     - ansible_user: ansible
+    - networkmanager: networkmanager
     - terminal: kitty
     - aur_helper: yay
     - filemanager: thunar

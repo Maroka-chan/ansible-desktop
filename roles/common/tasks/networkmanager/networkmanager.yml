@@ -1,0 +1,14 @@
+- name: Install NetworkManager
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - networkmanager
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
+
+- name: Start and Enable NetworkManager
+  ansible.builtin.service:
+    name: NetworkManager
+    state: started
+    enabled: yes
