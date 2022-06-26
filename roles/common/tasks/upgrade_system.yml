@@ -1,6 +1,6 @@
 - name: Upgrade the System
   kewlfft.aur.aur:
     upgrade: yes
-    use: yay
+    use: "{{ aur_helper }}"
   become: yes
   become_user: "{{ ansible_user }}"
