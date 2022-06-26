@@ -1,6 +1,7 @@
-- name: Enable wheel group
-  lineinfile:
+- name: Copy preconfigured sudoers file
+  ansible.builtin.copy:
+    src: files/sudoers
     dest: /etc/sudoers
-    state: present
-    regexp: '^%wheel'
-    line: '%wheel ALL=(ALL) ALL'
+    owner: root
+    group: root
+    mode: '0440'
