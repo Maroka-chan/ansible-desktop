@@ -6,8 +6,6 @@
 
 - include_tasks: bootloader/{{ bootloader }}.yml
 - include_tasks: configure_profile.yml
-- include_tasks: configure_pacman.yml
-- include_tasks: upgrade_system.yml
 
 - name: Install Sudo
   community.general.pacman:
@@ -16,11 +14,12 @@
     state: present
 
 - include_tasks: configure_sudoers.yml
-
 - include_tasks: create_ansible_user.yml
 - include_tasks: create_main_user.yml
-- include_tasks: aur_helper/{{ aur_helper }}.yml
 
+- include_tasks: aur_helper/{{ aur_helper }}.yml
+- include_tasks: configure_pacman.yml
+- include_tasks: upgrade_system.yml
 - include_tasks: install_base_packages.yml
 
 - include_tasks: graphics_drivers/nvidia.yml
