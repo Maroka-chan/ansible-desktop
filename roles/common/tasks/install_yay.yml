@@ -5,7 +5,7 @@
       - base-devel
     state: present
   become: yes
-  become_user: "{{ main_user }}"
+  become_user: "{{ ansible_user }}"
 
 - name: Clone Yay
   git:
@@ -13,7 +13,7 @@
     dest: ~/yay-bin
     update: true
   become: yes
-  become_user: "{{ main_user }}"
+  become_user: "{{ ansible_user }}"
 
 - name: Install Yay
   command:
@@ -21,4 +21,4 @@
     cmd: "makepkg -sfi --noconfirm && rm -rf ~/yay-bin"
     creates: /usr/bin/yay
   become: yes
-  become_user: "{{ main_user }}"
+  become_user: "{{ ansible_user }}"

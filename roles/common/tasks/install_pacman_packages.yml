@@ -6,7 +6,9 @@
       - chromium
       - firefox
       - neofetch
-      - man
+      - man-db
+      - pipewire-jack
+      - pipewire-media-session
     state: present
   become: yes
-  become_user: "{{ main_user }}"
+  become_user: "{{ ansible_user }}"

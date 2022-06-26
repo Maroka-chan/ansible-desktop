@@ -3,4 +3,4 @@
     upgrade: yes
     use: yay
   become: yes
-  become_user: "{{ main_user }}"
+  become_user: "{{ ansible_user }}"
