@@ -38,7 +38,7 @@ fi
 
 [ -f ~/.xprofile ] && . ~/.xprofile
 
-exec "{{ window_manager }}"
+exec {{ window_manager }}
 
 # Add this to your .xinitrc or whatever file starts programs on startup.
 # -R restores the last colorscheme that was in use.
