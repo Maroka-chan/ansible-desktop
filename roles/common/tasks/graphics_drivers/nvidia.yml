@@ -1,3 +1,6 @@
+- name: Ensure hooks dir exists
+  file: path=/etc/pacman.d/hooks state=directory
+
 - name: Copy Nvidia Pacman Hook
   ansible.builtin.template:
     src: pacman.d/hooks/nvidia.hook.j2
