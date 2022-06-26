@@ -1,0 +1,22 @@
+- name: Copy Nvidia Pacman Hook
+  ansible.builtin.template:
+    src: pacman.d/hooks/nvidia.hook.j2
+    dest: /etc/pacman.d/hooks/nvidia.hook
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Install nvidia
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - nvidia
+      - lib32-nvidia-utils
+      - nvidia-settings
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
+
+- name: Create automatic configuration
+  ansible.builtin.command:
+    cmd: nvidia-xconfig
