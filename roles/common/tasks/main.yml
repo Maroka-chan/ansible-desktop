@@ -7,8 +7,8 @@
 
 - include_tasks: create_ansible_user.yml
 
-- include_tasks: enable_wheel_group.yml
-- include_tasks: create_wheel_user.yml
+- include_tasks: configure_sudoers.yml
+- include_tasks: create_main_user.yml
 
 - include_tasks: aur_helper/{{ aur_helper }}.yml
 - include_tasks: configure_pacman.yml
