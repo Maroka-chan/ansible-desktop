@@ -1,25 +1,30 @@
 ---
+- name: Fail if bootloader is not installed
+  ansible.builtin.command: pacman -Q {{ bootloader }}
+  register: command_result
+  failed_when: "'was not found' in command_result.stderr"
+
+- include_tasks: bootloader/{{ bootloader }}.yml
+- include_tasks: configure_profile.yml
+- include_tasks: configure_pacman.yml
+
 - name: Install Sudo
   community.general.pacman:
     name:
       - sudo
     state: present
 
-- include_tasks: create_ansible_user.yml
-
 - include_tasks: configure_sudoers.yml
+
+- include_tasks: create_ansible_user.yml
 - include_tasks: create_main_user.yml
 
 - include_tasks: aur_helper/{{ aur_helper }}.yml
-- include_tasks: configure_pacman.yml
 - include_tasks: upgrade_system.yml
 - include_tasks: install_base_packages.yml
 
 - include_tasks: graphics_drivers/nvidia.yml
   when: if 'nvidia' in graphics_driver
-
-- include_tasks: configure_profile.yml
-- include_tasks: configure_grub.yml
 
 - include_tasks: terminal_emulator/{{ terminal }}.yml
 - include_tasks: filemanager/{{ filemanager }}.yml
