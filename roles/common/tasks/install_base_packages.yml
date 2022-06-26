@@ -1,5 +1,6 @@
-- name: Install Base Pacman Packages
-  community.general.pacman:
+- name: Install Base Packages
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
     name:
       - btop
       - neovim
@@ -10,3 +11,5 @@
       - pipewire-jack
       - pipewire-media-session
     state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
