@@ -1,0 +1,11 @@
+- name: Copy preconfigured mkinitcpio config
+  ansible.builtin.copy:
+    src: files/mkinitcpio.conf
+    dest: /etc/mkinitcpio.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Re-generate the GRUB config
+  ansible.builtin.command:
+    cmd: grub-mkconfig -o /boot/grub/grub.cfg
