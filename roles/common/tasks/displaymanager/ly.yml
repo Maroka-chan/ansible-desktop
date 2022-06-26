@@ -1,6 +1,6 @@
 - name: Install Ly
   kewlfft.aur.aur:
-    use: yay
+    use: "{{ aur_helper }}"
     name:
       - ly
     state: present

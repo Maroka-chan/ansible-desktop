@@ -1,6 +1,6 @@
 - name: Install Thunar
   kewlfft.aur.aur:
-    use: yay
+    use: "{{ aur_helper }}"
     name:
       - thunar
       - gvfs

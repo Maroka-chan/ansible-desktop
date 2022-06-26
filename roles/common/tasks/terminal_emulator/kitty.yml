@@ -1,0 +1,7 @@
+- name: Install Kitty
+  kewlfft.aur.aur:
+    name: kitty
+    use: "{{ aur_helper }}"
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
