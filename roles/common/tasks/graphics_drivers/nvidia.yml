@@ -9,7 +9,7 @@
     group: root
     mode: '0644'
 
-- name: Install nvidia
+- name: Install nvidia proprietary drivers
   kewlfft.aur.aur:
     use: "{{ aur_helper }}"
     name:
