@@ -2,7 +2,7 @@
   kewlfft.aur.aur:
     use: "{{ aur_helper }}"
     name:
-      - noto-fonts
+      - ttf-merriweather
       - ttf-google-fonts-git
       - ttf-vlgothic
     state: present
