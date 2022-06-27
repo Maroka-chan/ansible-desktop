@@ -7,6 +7,5 @@
   ansible.posix.synchronize:
     src: files/dotfiles/wallpapers
     dest: ~/Pictures/Wallpapers
-    mode: '0644'
   become: yes
   become_user: "{{ main_user }}"
