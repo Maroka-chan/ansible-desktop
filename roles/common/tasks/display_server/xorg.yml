@@ -17,3 +17,14 @@
     mode: '0644'
   become: yes
   become_user: "{{ main_user }}"
+
+- name: Copy xprofile
+  ansible.builtin.copy:
+    src: files/.xprofile
+    dest: ~/
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
+    mode: '0644'
+  become: yes
+  become_user: "{{ main_user }}"
+  
