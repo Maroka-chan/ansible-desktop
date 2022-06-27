@@ -7,6 +7,8 @@
 - include_tasks: bootloader/{{ bootloader }}.yml
 - include_tasks: configure_profile.yml
 
+### Set up sudo users ###
+
 - name: Install Sudo
   community.general.pacman:
     name:
@@ -17,26 +19,60 @@
 - include_tasks: create_ansible_user.yml
 - include_tasks: create_main_user.yml
 
+# ===================== #
+
+
+### Configure Pacman and AUR helper ###
+
 - include_tasks: aur_helper/{{ aur_helper }}.yml
 - include_tasks: configure_pacman.yml
-
 - include_tasks: upgrade_system.yml
+
+# =================================== #
+
+
+
+### Install before base packages to avoid conflicts ###
+
 - include_tasks: sound_server/{{ sound_server }}.yml
 - include_tasks: compositor/{{ compositor }}.yml
+
+# =================================================== #
+
+
+
 - include_tasks: install_base_packages.yml
 - include_tasks: install_fonts.yml
-
-- include_tasks: image_viewer/{{ image_viewer }}.yml
 - include_tasks: copy_wallpapers.yml
 
 - include_tasks: display_server/{{ display_server }}.yml
+
+
+
+### Install Window Managers ###
+
 - include_tasks: window_manager/{{ window_manager }}.yml
+  loop: "{{ window_managers }}"
+
+# =========================== #
+
+
+
 - include_tasks: graphics_drivers/nvidia.yml
   when: "'nvidia' in graphics_driver"
+
+
+
+### Install Applications ###
 
 - include_tasks: terminal_emulator/{{ terminal }}.yml
 - include_tasks: filemanager/{{ filemanager }}.yml
 - include_tasks: displaymanager/{{ displaymanager }}.yml
+- include_tasks: image_viewer/{{ image_viewer }}.yml
+
+# ======================== #
+
+
 
 - name: Done message
   ansible.builtin.debug:

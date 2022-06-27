@@ -5,19 +5,19 @@
   roles:
     - common
   vars:
-    - ansible_user: ansible
-    - bootloader: grub
-    - networkmanager: networkmanager
-    - display_server: xorg
-    - sound_server: pipewire
-    - graphics_driver: nvidia
-    - window_manager: awesome
-    - compositor: xcompmgr
-    - terminal: kitty
-    - aur_helper: yay
-    - filemanager: thunar
-    - displaymanager: ly
-    - image_viewer: feh
+    ansible_user: ansible
+    bootloader: grub
+    display_server: xorg
+    sound_server: pipewire
+    graphics_driver: nvidia
+    window_managers:
+      - awesome
+    compositor: xcompmgr
+    terminal: kitty
+    aur_helper: yay
+    filemanager: thunar
+    displaymanager: ly
+    image_viewer: feh
 
   vars_prompt:
     - name: main_user
