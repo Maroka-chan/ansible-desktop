@@ -1,11 +1,11 @@
 - name: Ensure wallpaper dir exists
-  file: path=~/Pictures/Wallpapers state=directory
+  file: path=~/Pictures state=directory
   become: yes
   become_user: "{{ main_user }}"
 
 - name: Synchronize wallpapers
   ansible.posix.synchronize:
-    src: files/dotfiles/wallpapers/*
-    dest: /home/{{ main_user }}/Pictures/Wallpapers
+    src: files/dotfiles/wallpapers
+    dest: /home/{{ main_user }}/Pictures
     rsync_opts:
       - "--chown={{ main_user }}:{{ main_user }}"
