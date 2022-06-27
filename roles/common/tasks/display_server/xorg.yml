@@ -3,20 +3,9 @@
     use: "{{ aur_helper }}"
     name:
       - xorg-server
-      - xorg-xinit
     state: present
   become: yes
   become_user: "{{ ansible_user }}"
-
-- name: Copy xinitrc
-  ansible.builtin.template:
-    src: xorg-xinit/.xinitrc.j2
-    dest: ~/.xinitrc
-    owner: "{{ main_user }}"
-    group: "{{ main_user }}"
-    mode: '0644'
-  become: yes
-  become_user: "{{ main_user }}"
 
 - name: Copy xprofile
   ansible.builtin.copy:
