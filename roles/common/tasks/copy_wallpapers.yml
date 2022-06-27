@@ -1,0 +1,14 @@
+- name: Ensure wallpaper dir exists
+  file: path=~/Pictures/Wallpapers state=directory
+  become: yes
+  become_user: "{{ main_user }}"
+
+- name: Copy preconfigured pacman config
+  ansible.builtin.copy:
+    src: files/dotfiles/wallpapers
+    dest: ~/Pictures/Wallpapers
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
+    mode: '0644'
+  become: yes
+  become_user: "{{ main_user }}"
