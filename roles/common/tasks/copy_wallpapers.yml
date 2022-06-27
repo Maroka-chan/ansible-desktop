@@ -6,6 +6,6 @@
 - name: Synchronize wallpapers
   ansible.posix.synchronize:
     src: files/dotfiles/wallpapers
-    dest: ~/Pictures/Wallpapers
+    dest: /home/{{ main_user }}/Pictures/Wallpapers
     rsync_opts:
       - "--chown={{ main_user }}:{{ main_user }}"
