@@ -2,12 +2,12 @@
   kewlfft.aur.aur:
     use: "{{ aur_helper }}"
     name:
+      - wireplumber
       - lib32-pipewire
       - pipewire-alsa
       - pipewire-pulse
       - pipewire-jack
       - lib32-pipewire-jack
-      - wireplumber
       - pipewire
     state: present
   become: yes
