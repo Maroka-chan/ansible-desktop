@@ -18,6 +18,7 @@
     filemanager: thunar
     displaymanager: ly
     image_viewer: feh
+    keyring: gnome-keyring
 
   vars_prompt:
     - name: main_user
