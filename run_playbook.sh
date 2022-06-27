@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Fetch submodules
-git submodule update --init --recursive
+git submodule update --init --recursive --remote
 
 # Install requirements
 pacman -Syu
