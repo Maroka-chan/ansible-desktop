@@ -7,5 +7,5 @@
   ansible.posix.synchronize:
     src: files/dotfiles/wallpapers
     dest: ~/Pictures/Wallpapers
-  become: yes
-  become_user: "{{ main_user }}"
+    rsync_opts:
+      - "--chown={{ main_user }}:{{ main_user }}"
