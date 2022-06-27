@@ -3,8 +3,8 @@
   become: yes
   become_user: "{{ main_user }}"
 
-- name: Copy preconfigured pacman config
-  ansible.builtin.copy:
+- name: Synchronize wallpapers
+  ansible.posix.synchronize:
     src: files/dotfiles/wallpapers
     dest: ~/Pictures/Wallpapers
     owner: "{{ main_user }}"
