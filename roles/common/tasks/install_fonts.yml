@@ -1,0 +1,27 @@
+- name: Install Fonts
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - noto-fonts
+      - ttf-google-fonts-git
+      - ttf-vlgothic
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
+
+
+# Caskaydia nerd font
+- name: Ensure Caskaydia font dir exists
+  file: path=/usr/share/fonts/caskaydia-cove-nerd-font state=directory
+
+- name: Download patched Caskaydia nerd font
+  ansible.builtin.get_url:
+    url: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/complete/Caskaydia%20Cove%20Regular%20Nerd%20Font%20Complete.otf
+    dest: /usr/share/fonts/caskaydia-cove-nerd-font/
+    mode: '0644'
+
+- name: Download patched Mono Caskaydia nerd font
+  ansible.builtin.get_url:
+    url: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/complete/Caskaydia%20Cove%20Regular%20Nerd%20Font%20Complete%20Mono.otf
+    dest: /usr/share/fonts/caskaydia-cove-nerd-font/
+    mode: '0644'
