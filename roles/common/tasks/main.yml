@@ -49,6 +49,14 @@
 
 
 
+### Install Keyring ###
+
+- include_tasks: keyring/{{ keyring }}.yml
+
+# =================== #
+
+
+
 ### Install Window Managers ###
 
 - include_tasks: window_manager/{{ window_manager }}.yml
