@@ -10,6 +10,7 @@
       - man-db
       - curl
       - jq
+      - rsync
     state: present
   become: yes
   become_user: "{{ ansible_user }}"
