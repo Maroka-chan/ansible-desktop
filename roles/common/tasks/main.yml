@@ -58,7 +58,7 @@
 
 ### Install Window Managers ###
 
-- include_tasks: window_manager/{{ window_manager }}.yml
+- include_tasks: window_manager/{{ item }}.yml
   loop: "{{ window_managers }}"
 
 # =========================== #
