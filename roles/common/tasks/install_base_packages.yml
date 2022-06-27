@@ -14,6 +14,7 @@
       - rsync
       - mpv
       - mullvad-vpn-bin
+      - pod2man   # For some reason needed for entangle to build (Remove when possible)
       - entangle
       - digikam
       - qbittorrent
