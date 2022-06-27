@@ -1,4 +1,4 @@
-- name: Install Base Packages
+- name: Install xcompmgr
   kewlfft.aur.aur:
     use: "{{ aur_helper }}"
     name:
