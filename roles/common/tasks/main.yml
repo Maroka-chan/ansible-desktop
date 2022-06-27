@@ -19,8 +19,15 @@
 
 - include_tasks: aur_helper/{{ aur_helper }}.yml
 - include_tasks: configure_pacman.yml
+
 - include_tasks: upgrade_system.yml
+- include_tasks: sound_server/{{ sound_server }}.yml
+- include_tasks: compositor/{{ compositor }}.yml
 - include_tasks: install_base_packages.yml
+- include_tasks: install_fonts.yml
+
+- include_tasks: image_viewer/{{ image_viewer }}.yml
+- include_tasks: copy_wallpapers.yml
 
 - include_tasks: display_server/{{ display_server }}.yml
 - include_tasks: window_manager/{{ window_manager }}.yml
@@ -31,5 +38,6 @@
 - include_tasks: filemanager/{{ filemanager }}.yml
 - include_tasks: displaymanager/{{ displaymanager }}.yml
 
-- name: Unconditionally reboot the machine with all defaults
-  ansible.builtin.reboot:
+- name: Done message
+  ansible.builtin.debug:
+    msg: Done! You can now reboot.
