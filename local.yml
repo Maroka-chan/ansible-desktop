@@ -9,12 +9,15 @@
     - bootloader: grub
     - networkmanager: networkmanager
     - display_server: xorg
+    - sound_server: pipewire
     - graphics_driver: nvidia
     - window_manager: awesome
+    - compositor: xcompmgr
     - terminal: kitty
     - aur_helper: yay
     - filemanager: thunar
     - displaymanager: ly
+    - image_viewer: feh
 
   vars_prompt:
     - name: main_user
