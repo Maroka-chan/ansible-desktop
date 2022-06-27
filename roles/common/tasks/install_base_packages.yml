@@ -6,11 +6,36 @@
       - neovim
       - chromium
       - firefox
+      - librewolf-bin
       - neofetch
       - man-db
       - curl
       - jq
       - rsync
+      - mpv
+      - mullvad-vpn-bin
+      - entangle
+      - digikam
+      - qbittorrent
+      - pavucontrol
+      - piper
+      - qemu-desktop
+      - virt-manager
+      - obs-studio
+      - jellyfin-media-player
+      - discord_arch_electron
+      - protonmail-bridge-bin
+      - mailspring
+      - flameshot
+      - blender
+      - inkscape
+      - krita
+      - rider
+      - intellij-idea-ultimate-edition
+      - visual-studio-code-bin
+      - minecraft-launcher
+      - steam
+      - osu-lazer-bin
     state: present
   become: yes
   become_user: "{{ ansible_user }}"
