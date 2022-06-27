@@ -23,6 +23,7 @@
     - name: main_user
       prompt: Type a username for your main sudo user.
       private: no
+      confirm: yes
     - name: main_user_password
       prompt: Type a password for your main sudo user.
       private: yes
