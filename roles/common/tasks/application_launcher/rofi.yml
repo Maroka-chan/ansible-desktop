@@ -7,6 +7,11 @@
   become: yes
   become_user: "{{ ansible_user }}"
 
+- name: Ensure sudoers.d path exists
+  file: path=~/.config/rofi state=directory
+  become: yes
+  become_user: "{{ main_user }}"
+
 - name: Copy Rofi Config
   ansible.builtin.copy:
     src: files/.config/rofi/config.rasi
