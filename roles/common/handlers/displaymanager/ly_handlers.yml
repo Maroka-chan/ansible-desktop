@@ -2,3 +2,4 @@
   ansible.builtin.service:
     name: ly
     enabled: yes
+  become: yes

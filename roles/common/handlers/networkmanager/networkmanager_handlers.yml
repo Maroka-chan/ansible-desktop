@@ -2,8 +2,10 @@
   ansible.builtin.service:
     name: NetworkManager
     enabled: yes
+  become: yes
 
 - name: Start NetworkManager
   ansible.builtin.service:
     name: NetworkManager
     state: started
+  become: yes
