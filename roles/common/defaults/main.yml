@@ -1,0 +1,16 @@
+---
+ansible_user: ansible
+bootloader: grub
+display_server: xorg
+sound_server: pipewire
+graphics_driver: nvidia
+window_managers:
+  - awesome
+compositor: xcompmgr
+terminal: kitty
+aur_helper: yay
+filemanager: thunar
+displaymanager: ly
+image_viewer: feh
+keyring: gnome-keyring
+application_launcher: rofi
