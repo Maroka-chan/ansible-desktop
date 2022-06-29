@@ -3,9 +3,9 @@
   connection: local
   pre_tasks:
     - name: Register the username of the user running the playbook
-      become: false
-      local_action: command whoami
+      ansible.builtin.command: whoami
       register: main_user
+      become: false
       failed_when: "main_user == 'root'"
   roles:
     - common
