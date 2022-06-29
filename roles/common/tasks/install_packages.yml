@@ -10,7 +10,6 @@
       - jq
       - rsync
     state: present
-  become: yes
 
 - name: Install Browsers
   kewlfft.aur.aur:
@@ -20,7 +19,6 @@
       - firefox
       - librewolf-bin
     state: present
-  become: yes
 
 - name: Install Camera Apps
   kewlfft.aur.aur:
@@ -30,7 +28,6 @@
       - entangle
       - digikam
     state: present
-  become: yes
 
 - name: Install Media Apps
   kewlfft.aur.aur:
@@ -40,7 +37,6 @@
       - mpv
       - mediainfo
     state: present
-  become: yes
 
 - name: Install Peripheral Tools
   kewlfft.aur.aur:
@@ -49,7 +45,6 @@
       - piper
       - via-bin
     state: present
-  become: yes
 
 - name: Install Virtualization
   kewlfft.aur.aur:
@@ -58,7 +53,6 @@
       - qemu-desktop
       - virt-manager
     state: present
-  become: yes
 
 - name: Install Creativity Apps
   kewlfft.aur.aur:
@@ -68,7 +62,6 @@
       - inkscape
       - krita
     state: present
-  become: yes
 
 - name: Install Development Apps
   kewlfft.aur.aur:
@@ -78,7 +71,6 @@
       - intellij-idea-ultimate-edition
       - visual-studio-code-bin
     state: present
-  become: yes
 
 - name: Install Game Apps
   kewlfft.aur.aur:
@@ -88,7 +80,6 @@
       - steam
       - osu-lazer-bin
     state: present
-  become: yes
 
 - name: Install Utility Apps
   kewlfft.aur.aur:
@@ -97,7 +88,6 @@
       - pavucontrol
       - flameshot
     state: present
-  become: yes
 
 - name: Install Mail Apps
   kewlfft.aur.aur:
@@ -106,7 +96,6 @@
       - protonmail-bridge-bin
       - mailspring
     state: present
-  become: yes
 
 - name: Install Messaging Apps
   kewlfft.aur.aur:
@@ -114,7 +103,6 @@
     name:
       - discord_arch_electron
     state: present
-  become: yes
 
 - name: Install Other Apps
   kewlfft.aur.aur:
@@ -124,5 +112,3 @@
       - qbittorrent
       - obs-studio
     state: present
-  become: yes
-  

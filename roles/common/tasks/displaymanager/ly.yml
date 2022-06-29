@@ -4,5 +4,4 @@
     name:
       - ly
     state: present
-  become: yes
   notify: Enable Ly

@@ -8,7 +8,6 @@
       - tumbler
       - raw-thumbnailer
     state: present
-  become: yes
   
 - name: Ensure Thunar Config Dir Exists
   file: path=~/.config/Thunar state=directory mode=0700

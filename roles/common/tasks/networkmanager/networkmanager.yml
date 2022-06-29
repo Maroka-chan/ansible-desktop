@@ -4,7 +4,6 @@
     name:
       - networkmanager
     state: present
-  become: yes
   notify:
     - Enable NetworkManager
     - Start NetworkManager

@@ -4,7 +4,6 @@
     name:
       - rofi
     state: present
-  become: yes
 
 - name: Ensure sudoers.d path exists
   file: path=~/.config/rofi state=directory

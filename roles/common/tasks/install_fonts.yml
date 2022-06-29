@@ -6,7 +6,6 @@
       - ttf-google-fonts-git
       - ttf-vlgothic
     state: present
-  become: yes
 
 
 # Caskaydia nerd font

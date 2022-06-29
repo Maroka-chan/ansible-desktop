@@ -3,4 +3,3 @@
     upgrade: yes
     update_cache: yes
     use: "{{ aur_helper }}"
-  become: yes

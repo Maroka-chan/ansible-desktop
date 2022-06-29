@@ -4,7 +4,6 @@
     name:
       - awesome-git
     state: present
-  become: yes
 
 - name: Synchronize Awesome config from dotfiles
   ansible.posix.synchronize:

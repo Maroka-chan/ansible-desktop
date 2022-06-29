@@ -6,4 +6,3 @@
       - libsecret
       - seahorse
     state: present
-  become: yes

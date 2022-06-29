@@ -4,7 +4,6 @@
     name:
       - feh
     state: present
-  become: yes
 
 - name: Copy fehbg script
   ansible.builtin.template:

@@ -5,4 +5,3 @@
       - xcompmgr
       - transset-df
     state: present
-  become: yes
