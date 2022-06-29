@@ -2,10 +2,8 @@
 - hosts: localhost
   connection: local
   become: true
-
-  include_tasks: create_ansible_user.yml
-  include_tasks: create_main_user.yml
-
+  vars_files:
+    - main.yml
   vars_prompt:
     - name: main_user_password
       prompt: Type a password for the user '{{ main_user }}'.
@@ -13,3 +11,6 @@
       unsafe: yes
       encrypt: bcrypt
       confirm: yes
+  tasks:
+    - include_tasks: create_ansible_user.yml
+    - include_tasks: create_main_user.yml
