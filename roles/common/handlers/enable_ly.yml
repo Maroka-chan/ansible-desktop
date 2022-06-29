@@ -1,0 +1,4 @@
+- name: Enable Ly
+  ansible.builtin.service:
+    name: ly
+    enabled: yes
