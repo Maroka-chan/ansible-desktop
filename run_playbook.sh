@@ -10,5 +10,6 @@ pacman -S git ansible python-passlib python-pip
 # Install collections
 ansible-galaxy collection install -r requirements.yml
 
-# Run Playbook
+# Run Playbooks
+ansible-playbook first_time_setup.yml
 ansible-playbook local.yml
