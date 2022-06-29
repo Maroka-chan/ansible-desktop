@@ -1,0 +1,4 @@
+---
+- include_tasks: bootloader/{{ bootloader }}_handlers.yml
+- include_tasks: displaymanager/{{ displaymanager }}_handlers.yml
+- include_tasks: networkmanager/{{ networkmanager }}_handlers.yml
