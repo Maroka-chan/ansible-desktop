@@ -1,5 +1,6 @@
 ---
 bootloader: grub
+networkmanager: networkmanager
 display_server: xorg
 sound_server: pipewire
 graphics_driver: nvidia

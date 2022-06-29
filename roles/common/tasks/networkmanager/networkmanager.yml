@@ -1,0 +1,10 @@
+- name: Ensure NetworkManager is present
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - networkmanager
+    state: present
+  become: yes
+  notify:
+    - Enable NetworkManager
+    - Start NetworkManager
