@@ -7,6 +7,7 @@
 - include_tasks: bootloader/{{ bootloader }}.yml
 - include_tasks: configure_profile.yml
 
+
 ### Set up sudo users ###
 
 - name: Install Sudo
@@ -31,8 +32,7 @@
 # =================================== #
 
 
-
-### Install before base packages to avoid conflicts ###
+### Install before other packages to avoid conflicts ###
 
 - include_tasks: sound_server/{{ sound_server }}.yml
 - include_tasks: compositor/{{ compositor }}.yml
@@ -41,11 +41,8 @@
 
 
 - include_tasks: install_fonts.yml
-- include_tasks: install_base_packages.yml
+- include_tasks: install_packages.yml
 - include_tasks: copy_wallpapers.yml
-
-- include_tasks: display_server/{{ display_server }}.yml
-
 
 
 ### Install Keyring ###
@@ -54,6 +51,12 @@
 
 # =================== #
 
+
+### Install Display Server ###
+
+- include_tasks: display_server/{{ display_server }}.yml
+
+# ========================== #
 
 
 ### Install Window Managers ###
@@ -64,21 +67,23 @@
 # =========================== #
 
 
+### Install Graphics Drivers ###
 
 - include_tasks: graphics_drivers/nvidia.yml
   when: "'nvidia' in graphics_driver"
 
+# ============================ #
 
 
 ### Install Applications ###
 
 - include_tasks: terminal_emulator/{{ terminal }}.yml
+- include_tasks: application_launcher/{{ application_launcher }}.yml
 - include_tasks: filemanager/{{ filemanager }}.yml
 - include_tasks: displaymanager/{{ displaymanager }}.yml
 - include_tasks: image_viewer/{{ image_viewer }}.yml
 
 # ======================== #
-
 
 
 - name: Done message
