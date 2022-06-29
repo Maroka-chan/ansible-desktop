@@ -1,6 +1,5 @@
-- name: Install Intel Microcode
-  kewlfft.aur.aur:
-    use: "{{ aur_helper }}"
+- name: Ensure GRUB is present
+  community.general.pacman:
     name:
       - intel-ucode
     state: present
