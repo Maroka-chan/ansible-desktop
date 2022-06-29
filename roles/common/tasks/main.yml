@@ -8,7 +8,7 @@
 - include_tasks: configure_profile.yml
 
 
-### Set up sudo users ###
+### Set up Sudo ###
 
 - name: Install Sudo
   community.general.pacman:
@@ -17,8 +17,6 @@
     state: present
 
 - include_tasks: configure_sudoers.yml
-- include_tasks: create_ansible_user.yml
-- include_tasks: create_main_user.yml
 
 # ===================== #
 
