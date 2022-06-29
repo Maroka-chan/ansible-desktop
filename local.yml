@@ -10,4 +10,8 @@
       failed_when: "main_user == 'root'"
   roles:
     - common
-    
+
+  tasks:
+    - name: Print finish message
+      ansible.builtin.debug:
+        msg: Done! You may now reboot.

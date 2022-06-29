@@ -83,8 +83,3 @@
 - include_tasks: image_viewer/{{ image_viewer }}.yml
 
 # ======================== #
-
-
-- name: Print finish message
-  ansible.builtin.debug:
-    msg: Done! You may now reboot.
