@@ -1,0 +1,29 @@
+- name: Install Rofi
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - rofi
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
+
+- name: Copy Rofi Config
+  ansible.builtin.copy:
+    src: files/.config/rofi/config.rasi
+    dest: ~/.config/rofi/config.rasi
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
+    mode: '0644'
+  become: yes
+  become_user: "{{ main_user }}"
+
+- name: Copy Rofi Theme
+  ansible.builtin.copy:
+    src: files/.config/rofi/theme.rasi
+    dest: ~/.config/rofi/theme.rasi
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
+    mode: '0644'
+  become: yes
+  become_user: "{{ main_user }}"
+  

@@ -19,6 +19,7 @@
     displaymanager: ly
     image_viewer: feh
     keyring: gnome-keyring
+    application_launcher: rofi
 
   vars_prompt:
     - name: main_user

@@ -1,0 +1,5 @@
+configuration {
+    icon-theme: "Papirus";
+    show-icons: true;
+}
+@import "theme"
