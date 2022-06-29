@@ -1,5 +1,6 @@
 ---
 - include_tasks: bootloader/{{ bootloader }}.yml
+- include_tasks: microcode/{{ microcode }}.yml
 - include_tasks: networkmanager/{{ networkmanager }}.yml
 - include_tasks: configure_profile.yml
 

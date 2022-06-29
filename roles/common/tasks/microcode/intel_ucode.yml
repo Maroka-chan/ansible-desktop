@@ -1,0 +1,8 @@
+- name: Install Intel Microcode
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - intel-ucode
+    state: present
+  become: yes
+  notify: Generate GRUB config

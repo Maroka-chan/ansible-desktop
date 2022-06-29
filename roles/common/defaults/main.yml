@@ -1,5 +1,6 @@
 ---
 bootloader: grub
+microcode: intel-ucode
 networkmanager: networkmanager
 display_server: xorg
 sound_server: pipewire
