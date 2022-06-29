@@ -4,4 +4,3 @@
     update_cache: yes
     use: "{{ aur_helper }}"
   become: yes
-  become_user: "{{ ansible_user }}"

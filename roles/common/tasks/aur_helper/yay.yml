@@ -4,14 +4,13 @@
       - git
       - base-devel
     state: present
+  become: yes
 
 - name: Clone Yay
   git:
     repo: https://aur.archlinux.org/yay-bin.git
     dest: ~/yay-bin
     update: true
-  become: yes
-  become_user: "{{ ansible_user }}"
 
 - name: Install Yay
   command:
@@ -19,4 +18,3 @@
     cmd: "makepkg -sfi --noconfirm && rm -rf ~/yay-bin"
     creates: /usr/bin/yay
   become: yes
-  become_user: "{{ ansible_user }}"

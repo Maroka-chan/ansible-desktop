@@ -1,5 +1,5 @@
 ---
-- name: Fail if bootloader is not installed
+- name: Ensure bootloader is present
   ansible.builtin.command: pacman -Q {{ bootloader }}
   register: command_result
   failed_when: "'was not found' in command_result.stderr"
@@ -10,11 +10,12 @@
 
 ### Set up Sudo ###
 
-- name: Install Sudo
+- name: Ensure Sudo is present
   community.general.pacman:
     name:
       - sudo
     state: present
+  become: yes
 
 - include_tasks: configure_sudoers.yml
 
@@ -84,6 +85,6 @@
 # ======================== #
 
 
-- name: Done message
+- name: Print finish message
   ansible.builtin.debug:
-    msg: Done! You can now reboot.
+    msg: Done! You may now reboot.

@@ -9,16 +9,12 @@
       - raw-thumbnailer
     state: present
   become: yes
-  become_user: "{{ ansible_user }}"
   
-- name: Create Thunar Config Dir
+- name: Ensure Thunar Config Dir Exists
   file: path=~/.config/Thunar state=directory mode=0700
-  become: yes
-  become_user: "{{ main_user }}"
 
 - name: Add Custom Actions to Thunar
   ansible.builtin.template:
     src: thunar/custom_actions.xml.j2
     dest: ~/.config/Thunar/uca.xml
-  become: yes
-  become_user: "{{ main_user }}"
+    mode: '0600'

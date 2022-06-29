@@ -5,11 +5,8 @@
       - awesome-git
     state: present
   become: yes
-  become_user: "{{ ansible_user }}"
 
 - name: Synchronize Awesome config from dotfiles
   ansible.posix.synchronize:
     src: files/dotfiles/config/awesome
-    dest: /home/{{ main_user }}/.config/
-    rsync_opts:
-      - "--chown={{ main_user }}:{{ main_user }}"
+    dest: ~/.config

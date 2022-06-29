@@ -11,7 +11,6 @@
       - rsync
     state: present
   become: yes
-  become_user: "{{ ansible_user }}"
 
 - name: Install Browsers
   kewlfft.aur.aur:
@@ -22,7 +21,6 @@
       - librewolf-bin
     state: present
   become: yes
-  become_user: "{{ ansible_user }}"
 
 - name: Install Camera Apps
   kewlfft.aur.aur:
@@ -33,7 +31,6 @@
       - digikam
     state: present
   become: yes
-  become_user: "{{ ansible_user }}"
 
 - name: Install Media Apps
   kewlfft.aur.aur:
@@ -44,7 +41,6 @@
       - mediainfo
     state: present
   become: yes
-  become_user: "{{ ansible_user }}"
 
 - name: Install Peripheral Tools
   kewlfft.aur.aur:
@@ -54,7 +50,6 @@
       - via-bin
     state: present
   become: yes
-  become_user: "{{ ansible_user }}"
 
 - name: Install Virtualization
   kewlfft.aur.aur:
@@ -64,7 +59,6 @@
       - virt-manager
     state: present
   become: yes
-  become_user: "{{ ansible_user }}"
 
 - name: Install Creativity Apps
   kewlfft.aur.aur:
@@ -75,7 +69,6 @@
       - krita
     state: present
   become: yes
-  become_user: "{{ ansible_user }}"
 
 - name: Install Development Apps
   kewlfft.aur.aur:
@@ -86,7 +79,6 @@
       - visual-studio-code-bin
     state: present
   become: yes
-  become_user: "{{ ansible_user }}"
 
 - name: Install Game Apps
   kewlfft.aur.aur:
@@ -97,7 +89,6 @@
       - osu-lazer-bin
     state: present
   become: yes
-  become_user: "{{ ansible_user }}"
 
 - name: Install Utility Apps
   kewlfft.aur.aur:
@@ -107,7 +98,6 @@
       - flameshot
     state: present
   become: yes
-  become_user: "{{ ansible_user }}"
 
 - name: Install Mail Apps
   kewlfft.aur.aur:
@@ -117,7 +107,6 @@
       - mailspring
     state: present
   become: yes
-  become_user: "{{ ansible_user }}"
 
 - name: Install Messaging Apps
   kewlfft.aur.aur:
@@ -126,7 +115,6 @@
       - discord_arch_electron
     state: present
   become: yes
-  become_user: "{{ ansible_user }}"
 
 - name: Install Other Apps
   kewlfft.aur.aur:
@@ -137,4 +125,4 @@
       - obs-studio
     state: present
   become: yes
-  become_user: "{{ ansible_user }}"
+  

@@ -1,5 +1,6 @@
 - name: Ensure hooks dir exists
   file: path=/etc/pacman.d/hooks state=directory
+  become: yes
 
 - name: Copy Nvidia Pacman Hook
   ansible.builtin.template:
@@ -8,6 +9,7 @@
     owner: root
     group: root
     mode: '0644'
+  become: yes
 
 - name: Install nvidia proprietary drivers
   kewlfft.aur.aur:
@@ -18,9 +20,9 @@
       - nvidia-settings
     state: present
   become: yes
-  become_user: "{{ ansible_user }}"
 
 - name: Create automatic configuration
   ansible.builtin.command:
     cmd: nvidia-xconfig
   when: "display_server == 'xorg'"
+  become: yes

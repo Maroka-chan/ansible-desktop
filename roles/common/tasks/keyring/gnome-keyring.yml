@@ -7,4 +7,3 @@
       - seahorse
     state: present
   become: yes
-  become_user: "{{ ansible_user }}"
