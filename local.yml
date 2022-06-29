@@ -2,7 +2,12 @@
 - hosts: localhost
   connection: local
   become: true
-  vars_files:
-    - main.yml
   roles:
     - common
+
+  tasks:
+    - name: Register the username of the user running the playbook
+      become: false
+      local_action: command whoami
+      register: main_user
+      failed_when: "main_user == 'root'"
