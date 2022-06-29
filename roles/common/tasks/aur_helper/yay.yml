@@ -17,4 +17,3 @@
     chdir: ~/yay-bin
     cmd: "makepkg -sfi --noconfirm && rm -rf ~/yay-bin"
     creates: /usr/bin/yay
-  become: yes
