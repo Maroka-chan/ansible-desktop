@@ -1,4 +1,4 @@
-- name: Ensure GRUB is present
+- name: Ensure Intel Microcode is present
   community.general.pacman:
     name:
       - intel-ucode
