@@ -1,5 +1,4 @@
 ---
-ansible_user: ansible
 bootloader: grub
 display_server: xorg
 sound_server: pipewire
