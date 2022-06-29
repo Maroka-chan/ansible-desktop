@@ -1,3 +1,16 @@
+- name: Ensure GRUB is present
+  community.general.pacman:
+    name:
+      - grub
+      - efibootmgr
+    state: present
+  become: yes
+
+- name: Run grub-install
+  ansible.builtin.command:
+    cmd: grub-install --target={{ target }} --efi-directory={{ efi_dir }} --bootloader-id={{ bootloader_id }}
+  become: yes
+
 - name: Copy preconfigured GRUB config
   ansible.builtin.copy:
     src: files/grub
