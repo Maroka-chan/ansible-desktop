@@ -1,0 +1,140 @@
+- name: Install Base Packages
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - btop
+      - neovim
+      - neofetch
+      - man-db
+      - curl
+      - jq
+      - rsync
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
+
+- name: Install Browsers
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - chromium
+      - firefox
+      - librewolf-bin
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
+
+- name: Install Camera Apps
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - pod2man   # For some reason needed for entangle to build (Remove when possible)
+      - entangle
+      - digikam
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
+
+- name: Install Media Apps
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - jellyfin-media-player
+      - mpv
+      - mediainfo
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
+
+- name: Install Peripheral Tools
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - piper
+      - via-bin
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
+
+- name: Install Virtualization
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - qemu-desktop
+      - virt-manager
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
+
+- name: Install Creativity Apps
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - blender
+      - inkscape
+      - krita
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
+
+- name: Install Development Apps
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - rider
+      - intellij-idea-ultimate-edition
+      - visual-studio-code-bin
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
+
+- name: Install Game Apps
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - minecraft-launcher
+      - steam
+      - osu-lazer-bin
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
+
+- name: Install Utility Apps
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - pavucontrol
+      - flameshot
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
+
+- name: Install Mail Apps
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - protonmail-bridge-bin
+      - mailspring
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
+
+- name: Install Messaging Apps
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - discord_arch_electron
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
+
+- name: Install Other Apps
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - mullvad-vpn-bin
+      - qbittorrent
+      - obs-studio
+    state: present
+  become: yes
+  become_user: "{{ ansible_user }}"
