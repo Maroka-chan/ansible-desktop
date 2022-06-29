@@ -3,6 +3,9 @@
     name: "{{ ansible_user }}"
     system: yes
 
+- name: Ensure sudoers.d path exists
+  file: path=/etc/sudoers.d state=directory
+
 - name: Set up sudo for ansible user
   ansible.builtin.template:
     src: sudoers/ansible_user.j2
