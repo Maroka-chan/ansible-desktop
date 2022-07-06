@@ -15,3 +15,5 @@ displaymanager: ly
 image_viewer: feh
 keyring: gnome-keyring
 application_launcher: rofi
+browsers:
+  - firefox
