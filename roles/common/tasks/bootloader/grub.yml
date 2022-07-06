@@ -7,11 +7,12 @@
   become: yes
 
 - name: Include GRUB vars
-  ansible.builtin.include_vars: "{{ bootloader }}_vars.yml"
+  ansible.builtin.include_vars: "grub_vars.yml"
 
 - name: Run grub-install
   ansible.builtin.command:
     cmd: grub-install --target={{ target }} --efi-directory={{ efi_dir }} --bootloader-id={{ bootloader_id }}
+  creates: "{{ efi_dir }}/grub"
   become: yes
 
 - name: Copy preconfigured GRUB config
