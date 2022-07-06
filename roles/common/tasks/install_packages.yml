@@ -11,15 +11,6 @@
       - rsync
     state: present
 
-- name: Install Browsers
-  kewlfft.aur.aur:
-    use: "{{ aur_helper }}"
-    name:
-      - chromium
-      - firefox
-      - librewolf-bin
-    state: present
-
 - name: Install Camera Apps
   kewlfft.aur.aur:
     use: "{{ aur_helper }}"
