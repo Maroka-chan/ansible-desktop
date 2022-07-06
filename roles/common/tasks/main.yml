@@ -85,4 +85,7 @@
 - include_tasks: displaymanager/{{ displaymanager }}.yml
 - include_tasks: image_viewer/{{ image_viewer }}.yml
 
+- include_tasks: browser/{{ item }}.yml
+  loop: "{{ browsers }}"
+
 # ======================== #
