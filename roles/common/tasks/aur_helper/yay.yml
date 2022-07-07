@@ -9,11 +9,11 @@
 - name: Clone Yay
   git:
     repo: https://aur.archlinux.org/yay-bin.git
-    dest: ~/yay-bin
+    dest: /tmp/yay-bin
     update: true
 
 - name: Install Yay
   command:
     chdir: ~/yay-bin
-    cmd: "makepkg -sfi --noconfirm && rm -rf ~/yay-bin"
+    cmd: "makepkg -sfi --noconfirm && rm -rf /tmp/yay-bin"
     creates: /usr/bin/yay
