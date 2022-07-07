@@ -1,0 +1,66 @@
+- name: Install Firefox
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - firefox
+    state: present
+
+- name: Include Firefox vars
+  ansible.builtin.include_vars: "firefox_vars.yml"
+
+- name: Create Firefox profile
+  ansible.builtin.command:
+    cmd: firefox --headless -no-remote -CreateProfile {{ profile_name }}
+
+- name: Run Firefox to initialize installs
+  ansible.builtin.command:
+    cmd: timeout 2s firefox --headless -no-remote
+  creates: ~/.mozilla/firefox/installs.ini
+
+- name: Get Profile Path
+  ansible.builtin.command:
+    cmd: ls | grep -E "^*.{{ profile_name }}$"
+  register: profile_path
+
+- name: Ensure Firefox is not running
+  ansible.builtin.command:
+    cmd: killall -qw firefox
+
+- name: Set profile for installs.ini
+  ansible.builtin.replace:
+    path: ~/.mozilla/firefox/installs.ini
+    regexp: '^(Default=).{8}..+$'
+    replace: '\1{{ profile_path.stdout }}'
+
+- name: Set profile for profiles.ini
+  ansible.builtin.replace:
+    path: ~/.mozilla/firefox/profiles.ini
+    regexp: '^(Default=).{8}..+$'
+    replace: '\1{{ profile_path.stdout }}'
+
+- name: Copy user-overrides.js
+  ansible.builtin.copy:
+    src: files/.mozilla/firefox/profile/user-overrides.js
+    dest: ~/.mozilla/firefox/{{ profile_path.stdout }}/user-overrides.js
+    mode: '0600'
+
+- name: Download arkenfox updater.sh
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/arkenfox/user.js/master/updater.sh
+    dest: ~/.mozilla/firefox/{{ profile_path.stdout }}/updater.sh
+    mode: '700'
+
+- name: Run arkenfox updater script
+  ansible.builtin.command:
+    cmd: ~/.mozilla/firefox/{{ profile_path.stdout }}/updater.sh -s
+
+- name: Download arkenfox prefsCleaner.sh
+  ansible.builtin.get_url:
+    url: https://raw.githubusercontent.com/arkenfox/user.js/master/prefsCleaner.sh
+    dest: ~/.mozilla/firefox/{{ profile_path.stdout }}/prefsCleaner.sh
+    mode: '700'
+
+- name: Run arkenfox prefsCleaner script
+  ansible.builtin.command:
+    cmd: ~/.mozilla/firefox/{{ profile_path.stdout }}/prefsCleaner.sh -s
+  removes: ~/.mozilla/firefox/{{ profile_path.stdout }}/prefs.js
