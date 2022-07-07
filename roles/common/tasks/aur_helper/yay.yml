@@ -14,6 +14,6 @@
 
 - name: Install Yay
   command:
-    chdir: ~/yay-bin
-    cmd: "makepkg -sfi --noconfirm && rm -rf /tmp/yay-bin"
+    chdir: /tmp/yay-bin
+    cmd: "makepkg -sfi --noconfirm"
     creates: /usr/bin/yay
