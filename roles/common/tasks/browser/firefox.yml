@@ -27,6 +27,7 @@
 - name: Ensure Firefox is not running
   ansible.builtin.command:
     cmd: killall -qw firefox
+  ignore_errors: yes
 
 - name: Set profile for installs.ini
   ansible.builtin.replace:
