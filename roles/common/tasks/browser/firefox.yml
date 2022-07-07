@@ -16,6 +16,7 @@
   ansible.builtin.command:
     cmd: timeout 2s firefox --headless -no-remote
     creates: ~/.mozilla/firefox/installs.ini
+  ignore_errors: yes
 
 - name: Get Profile Path
   ansible.builtin.command:
