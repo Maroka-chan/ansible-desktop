@@ -12,7 +12,7 @@
 - name: Run grub-install
   ansible.builtin.command:
     cmd: grub-install --target={{ target }} --efi-directory={{ efi_dir }} --bootloader-id={{ bootloader_id }}
-  creates: "{{ efi_dir }}/grub"
+    creates: "{{ efi_dir }}/grub"
   become: yes
 
 - name: Copy preconfigured GRUB config

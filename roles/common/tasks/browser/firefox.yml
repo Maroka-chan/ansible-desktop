@@ -15,7 +15,7 @@
 - name: Run Firefox to initialize installs
   ansible.builtin.command:
     cmd: timeout 2s firefox --headless -no-remote
-  creates: ~/.mozilla/firefox/installs.ini
+    creates: ~/.mozilla/firefox/installs.ini
 
 - name: Get Profile Path
   ansible.builtin.command:
@@ -63,4 +63,4 @@
 - name: Run arkenfox prefsCleaner script
   ansible.builtin.command:
     cmd: ~/.mozilla/firefox/{{ profile_path.stdout }}/prefsCleaner.sh -s
-  removes: ~/.mozilla/firefox/{{ profile_path.stdout }}/prefs.js
+    removes: ~/.mozilla/firefox/{{ profile_path.stdout }}/prefs.js
