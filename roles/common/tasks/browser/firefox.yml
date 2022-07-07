@@ -19,8 +19,9 @@
   ignore_errors: yes
 
 - name: Get Profile Path
-  ansible.builtin.command:
+  ansible.builtin.shell:
     cmd: ls | grep -E "^*.{{ profile_name }}$"
+    chdir: ~/.mozilla/firefox/
   register: profile_path
 
 - name: Ensure Firefox is not running
