@@ -9,6 +9,7 @@
       - curl
       - jq
       - rsync
+      - polkit
     state: present
 
 - name: Install Camera Apps
