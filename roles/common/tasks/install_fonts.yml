@@ -2,8 +2,9 @@
   kewlfft.aur.aur:
     use: "{{ aur_helper }}"
     name:
+      - noto-fonts
       - ttf-merriweather
-      - ttf-google-fonts-git
+      - ttf-mononoki
       - ttf-vlgothic
     state: present
 
@@ -13,16 +14,30 @@
   file: path=/usr/share/fonts/caskaydia-cove-nerd-font state=directory
   become: yes
 
-- name: Download patched Caskaydia nerd font
+- name: Download patched Caskaydia nerd font Regular
   ansible.builtin.get_url:
-    url: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/complete/Caskaydia%20Cove%20Regular%20Nerd%20Font%20Complete.otf
-    dest: /usr/share/fonts/caskaydia-cove-nerd-font/Caskaydia_Cove_Regular_Nerd_Font_Complete.otf
+    url: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/complete/Caskaydia%20Cove%20Nerd%20Font%20Complete%20Regular.otf
+    dest: /usr/share/fonts/caskaydia-cove-nerd-font/Caskaydia_Cove_Regular_Nerd_Font_Complete_Regular.otf
     mode: '0644'
   become: yes
 
-- name: Download patched Mono Caskaydia nerd font
+- name: Download patched Caskaydia nerd font Italic
   ansible.builtin.get_url:
-    url: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/complete/Caskaydia%20Cove%20Regular%20Nerd%20Font%20Complete%20Mono.otf
-    dest: /usr/share/fonts/caskaydia-cove-nerd-font/Caskaydia_Cove_Regular_Nerd_Font_Complete_Mono.otf
+    url: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/complete/Caskaydia%20Cove%20Nerd%20Font%20Complete%20Italic.otf
+    dest: /usr/share/fonts/caskaydia-cove-nerd-font/Caskaydia_Cove_Regular_Nerd_Font_Complete_Italic.otf
+    mode: '0644'
+  become: yes
+
+- name: Download patched Caskaydia nerd font Mono Regular
+  ansible.builtin.get_url:
+    url: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/complete/Caskaydia%20Cove%20Nerd%20Font%20Complete%20Mono%20Regular.otf
+    dest: /usr/share/fonts/caskaydia-cove-nerd-font/Caskaydia_Cove_Regular_Nerd_Font_Complete_Mono_Regular.otf
+    mode: '0644'
+  become: yes
+
+- name: Download patched Caskaydia nerd font Mono Italic
+  ansible.builtin.get_url:
+    url: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/CascadiaCode/Regular/complete/Caskaydia%20Cove%20Nerd%20Font%20Complete%20Mono%20Italic.otf
+    dest: /usr/share/fonts/caskaydia-cove-nerd-font/Caskaydia_Cove_Regular_Nerd_Font_Complete_Mono_Italic.otf
     mode: '0644'
   become: yes
