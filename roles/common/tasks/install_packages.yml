@@ -93,7 +93,7 @@
   kewlfft.aur.aur:
     use: "{{ aur_helper }}"
     name:
-      - discord_arch_electron
+      - discord-canary
     state: present
 
 - name: Install Other Apps
