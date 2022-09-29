@@ -64,6 +64,13 @@
       - visual-studio-code-bin
     state: present
 
+- name: Install Productivity Apps
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - obsidian
+    state: present
+
 - name: Install Game Apps
   kewlfft.aur.aur:
     use: "{{ aur_helper }}"
