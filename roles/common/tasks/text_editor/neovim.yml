@@ -1,0 +1,6 @@
+- name: Install Base Packages
+  kewlfft.aur.aur:
+    use: "{{ aur_helper }}"
+    name:
+      - neovim
+    state: present

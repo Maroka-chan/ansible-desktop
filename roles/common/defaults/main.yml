@@ -9,6 +9,7 @@ window_managers:
   - awesome
 compositor: xcompmgr
 terminal: kitty
+text_editor: neovim
 aur_helper: yay
 filemanager: thunar
 displaymanager: ly

@@ -3,7 +3,6 @@
     use: "{{ aur_helper }}"
     name:
       - btop
-      - neovim
       - neofetch
       - man-db
       - curl

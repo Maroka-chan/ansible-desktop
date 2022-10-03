@@ -80,6 +80,7 @@
 ### Install Applications ###
 
 - include_tasks: terminal_emulator/{{ terminal }}.yml
+- include_tasks: text_editor/{{ text_editor }}.yml
 - include_tasks: application_launcher/{{ application_launcher }}.yml
 - include_tasks: filemanager/{{ filemanager }}.yml
 - include_tasks: displaymanager/{{ displaymanager }}.yml
