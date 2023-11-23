@@ -1,0 +1,22 @@
+- name: Get checksum of host default file
+  ansible.builtin.stat:
+    checksum_algorithm: sha256
+    get_attributes: no
+    get_checksum: yes
+    get_mime: no
+    path: {{ item }}
+  register: hostchecksum
+
+- name: Get checksum of default file
+  ansible.builtin.stat:
+    checksum_algorithm: sha256
+    get_attributes: no
+    get_checksum: yes
+    get_mime: no
+    path: files/{{ item }}.default
+  register: checksum
+
+- name: Ensure checksums are equal
+  ansible.builtin.fail:
+    msg: The default file '{{ item }}' on the host does not match the default file from the ansible project. Update your default file in the ansible project and the modified version to be copied to the host.
+  when: checksum.stat.checksum != hostchecksum.stat.checksum

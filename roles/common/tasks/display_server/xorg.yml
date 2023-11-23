@@ -11,3 +11,8 @@
     dest: ~/
     mode: '0644'
   
+  // Setup xorg.conf.d keyboard and wacom etc.
+
+  // TODO
+  // - Install texlive n stuff for knap
+  // - Move .config and other dotfiles into dotfiles repo

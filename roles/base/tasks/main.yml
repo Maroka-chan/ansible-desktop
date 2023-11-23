@@ -1,0 +1,12 @@
+---
+- name: Ensure Yay is Installed
+  ansible.builtin.include_tasks: aur_helper/install_yay.yml
+
+- name: Ensure System is Up to Date
+  kewlfft.aur.aur:
+    use: yay
+    upgrade: true
+    update_cache: true
+
+- name: Ensure Base Packages are Present
+  ansible.builtin.include_tasks: install_base_packages.yml

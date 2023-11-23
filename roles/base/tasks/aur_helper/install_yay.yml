@@ -1,0 +1,28 @@
+---
+- name: Install git & base-devel
+  community.general.pacman:
+    name:
+      - git
+      - base-devel
+    state: present
+  become: true
+
+- name: Check Yay state
+  ansible.builtin.command:
+    cmd: "pacman -Qi yay"
+  register: yay_state
+  ignore_errors: true
+  changed_when: false
+
+- name: Clone Yay
+  ansible.builtin.git:
+    repo: https://aur.archlinux.org/yay-bin.git
+    dest: /tmp/yay-bin
+    update: true
+  when: yay_state.rc == 1
+
+- name: Install Yay
+  ansible.builtin.command:
+    chdir: /tmp/yay-bin
+    cmd: "makepkg -sfi --noconfirm"
+    creates: /usr/bin/yay

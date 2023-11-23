@@ -1,0 +1,30 @@
+---
+- name: Ensure LSPs from Package Manager are Present
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - bash-language-server
+      - shellcheck-bin
+      - lua-language-server
+      - gopls
+      - texlab
+    state: present
+
+      #- name: Ensure LSPs from NPM are Present
+      #  community.general.npm:
+      #    name:
+      #      - "@ansible/ansible-language-server"
+      #      - dockerfile-language-server-nodejs
+      #    global: true
+      #    state: present
+      #
+      #- name: Ensure LSPs from Pip are Present
+      #  ansible.builtin.pip:
+      #    name:
+      #      - pyright
+      #      - ansible-lint
+      #    state: present
+
+      #- name: Ensure LSPs from DotNet are Present
+      #  ansible.builtin.command:
+      #    cmd: dotnet tool install --global csharp-ls

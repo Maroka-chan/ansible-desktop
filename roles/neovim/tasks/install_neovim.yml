@@ -1,0 +1,7 @@
+---
+- name: Ensure Neovim is Present
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - neovim
+    state: present

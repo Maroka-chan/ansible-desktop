@@ -1,0 +1,7 @@
+---
+- name: Ensure Base Packages are Present
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - rsync
+    state: present

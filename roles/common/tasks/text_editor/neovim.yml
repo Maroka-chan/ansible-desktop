@@ -1,6 +1,15 @@
-- name: Install Base Packages
+- name: Install Neovim
   kewlfft.aur.aur:
     use: "{{ aur_helper }}"
     name:
       - neovim
     state: present
+
+
+
+  // yay -S bash-language-server shellcheck-bin lua-language-server gopls texlab
+  // dotnet tool install --global csharp-ls fsautocomplete
+  // yay -S ripgrep fd tectonic
+  // npm install -g @ansible/ansible-language-server dockerfile-language-server-nodejs
+  // pip install pyright ansible-lint
+  // git clone https://github.com/awchad/awesome-emmylua ~/.local/share/awesome-emmylua

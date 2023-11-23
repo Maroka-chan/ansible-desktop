@@ -1,0 +1,9 @@
+---
+- name: Ensure Neovim is Present
+  ansible.builtin.include_tasks: install_neovim.yml
+
+- name: Ensure Language Server Protocols are Present
+  ansible.builtin.include_tasks: install_LSPs.yml
+
+- name: Ensure Neovim dotfiles are Synchronized
+  ansible.builtin.include_tasks: configure_neovim.yml

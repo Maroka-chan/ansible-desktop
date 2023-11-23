@@ -1,0 +1,5 @@
+---
+- name: Ensure Neovim dotfiles are Synchronized
+  ansible.posix.synchronize:
+    src: "{{ playbook_dir }}/files/dotfiles/config/nvim"
+    dest: ~/.config

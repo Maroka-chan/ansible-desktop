@@ -1,3 +1,8 @@
+- include: compare_default_file.yml
+  with_items:
+    - /etc/sudoers
+
+
 - name: Copy preconfigured sudoers file
   ansible.builtin.copy:
     src: files/sudoers

@@ -1,0 +1,20 @@
+---
+bootloader: grub
+microcode: intel-ucode
+networkmanager: networkmanager
+display_server: xorg
+sound_server: pipewire
+graphics_driver: nvidia
+window_managers:
+  - awesome
+compositor: xcompmgr
+terminal: kitty
+text_editor: neovim
+aur_helper: yay
+filemanager: thunar
+displaymanager: ly
+image_viewer: feh
+keyring: gnome-keyring
+application_launcher: rofi
+browsers:
+  - firefox
